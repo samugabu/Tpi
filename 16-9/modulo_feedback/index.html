@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modulo Feedback</title>
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <h1>Modulo di feedback</h1>
+
+  <form id="form">
+
+    <label for="nome">Nome</label><br>
+    <input type="text" id="nome" name="nome"><br>
+
+    <label for="email">Email</label><br>
+    <input type="email" id="email" name="email"><br>
+
+    <label for="data">Data del feedback</label><br>
+    <input type="date" id="data" name="data"><br>
+
+    <label for="ora">Ora del feedback</label><br>
+    <input type="time" id="ora" name="ora"><br>
+
+    <label for="tipoFeedback">Tipo di feedback</label><br>
+    <select id="tipoFeedback" name="tipoFeedback">
+      <option value="">Seleziona un'opzione</option>
+      <option value="Commento">Commento</option>
+      <option value="Suggerimento">Suggerimento</option>
+      <option value="Problema">Problema</option>
+      <option value="Richiesta">Richiesta</option>
+    </select><br>
+
+    <label for="testoFeedback">Messaggio</label><br>
+    <textarea id="testoFeedback" name="testoFeedback" rows="4"></textarea><br>
+
+    <label class="checkbox-label">
+      <input type="checkbox" id="iscrizione" name="iscrizione">
+      Iscriviti alla newsletter
+    </label><br>
+
+    <button type="submit">Invia feedback</button><br>
+
+  </form>
+
+  <h2>Feedback ricevuti</h2>
+
+  <table id="tabellaFeedback" border="3">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Email</th>
+        <th>Data</th>
+        <th>Ora</th>
+        <th>Tipo</th>
+        <th>Messaggio</th>
+        <th>Newsletter</th>
+        <th>Elimin</th>
+      </tr>
+    </thead>
+    <tbody id="corpoTabella">
+    </tbody>
+  </table>
+</body>
+</html>
