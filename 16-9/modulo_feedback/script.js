@@ -24,7 +24,7 @@ form.addEventListener("submit", function (event) {
   const newsletter = document.getElementById("iscrizione").checked;
 
   if (!nome || !email || !data || !ora || !tipoFeedback || !testoFeedback) {
-    alert("Compila tutti i campi prima di inviare il feedback.");
+    alert("Compila tutti i campi.");
     return;
   }
 
