@@ -61,4 +61,5 @@ form.addEventListener("submit", function (event) {
   riga.appendChild(cellaAzioni);
 
   corpoTabella.appendChild(riga);
+  form.reset();
 });
