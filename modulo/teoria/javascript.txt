@@ -1,0 +1,244 @@
+javascript viene eseguito solo nella tua scheda non tra + schede (scheda = sito web)
+ordine di lettrua= alto verso il basso
+esistono 2 tipi di codice=
+    -interpretato= passato al browser cosi com'è
+    -compilato= viene trasformato in linguaggio macchina
+
+client side = codice scaricato dal server per la pagina
+server side = codice utilizzato nei server del sito (es. login)
+
+javascrip si può usare con tutti e 2 con node.js
+statico = non cambia
+dinamica = interazione con l'utente, cambio di dati (es. x dirette x punteggi di calcio)
+
+x aggingiere javascrip alla pagina si fa così=
+    -con il tag = <script> codice javascrip </script> (metterlo in body)
+    -esterno = <script src="script.js"></script>
+    -in un altro tag= (es. <p onclick="ciao()">testo</p>)
+x essere sicuri di non avere errori x il caricamento della pagina =
+    -mettere in fondo alla pagina lo script
+    -prima dello script mettere = document.addEventListener('DOMContentLoaded", function( { codice javascript });
+    -dopo aver messo il link al codice javascript, puoi mettere anche:
+        defer (vengono eseguiti in ordine in cui sono stati linkati)
+        async (vengono eseguiti senza un ordine, viene eseguito quello scaricato prima)
+x mettere un commento basta mettere=
+    - // per 1 sola riga
+    - /* codice */ per tutto il codice all'interno
+
+let = varabile (PUOI CAMBIARE, NON PUò INIZIARE CON UN NUMERO, SENSIBILE AL MAIUSCOLO)
+non puoi mettere un nome già utilizzato o un altra cosa indefinita al valore
+prima parola in minuscolo e le altre in maiuscolo
+megio usare let però x vecchi browser si usa var (https://caniuse.com/)
+si possono mettere + cose con delle virgole (let x = 3, y = 6)
+const = costante (NON PUOI CAMBIARE E DEVI PRECISARLO SUBITO)
+
+numeri = interi \ float (con decimali) non serve specificare
+è possibile fare operazioni con (+-*/%)
+i numeri seguono le regole delle espressioni
+si può incrementare le variabili con (a = a + numero)
+NAN(not an number) non un numero (se vuoi verificare 'console.log(isNaN(variabile)))
+infinito = numero / 0 (se vuoi verificare 'console.log(isFinite(variabile)))
+per numeri con grandi decimiali (console.log(variabile.toFixed(numero decimali che vogliamo)))
+da stringa a float (let variabile = parseFloat(varabile stringa))
+da stringa a int (let variabile = Number(varabile stringa))
+la comparazione con (==) dà il risultato senza controllare il tipo ("10" = 10)
+mentre (===) compara anche il tipo della variabile
+
+stringe + numeri = (const costante = 'testo' + variabile)
+da int a stringa = (variabile.toString())
+le stighe sono testi, anche senza variabile, si possono mettere sia ' che "
+Template literals = (backtick - backtick) possiamo farci quello che volgiamo, E
+template sting = (const variabile = `testo ${variabile} testo ...`)
+htlm template sting = (const variabile = `codice htlm`)
+
+per lettere (console.log(variabile(numero lettera la prima è 0)))
+per lunghezza (console.log(varabile.lenght))
+x tutta maiuscolo (console.log(variabile.toUpperCase()))
+x tutta minuscolo (console.log(variabile.toLowerCase()))
+indice = (console.log(variabile.indexOf('lettera')))
+indice ultima lettera = (console.log(variabile.lastIndexOf('lettera')))
+tagliare (per posizione) = (let variabile = testo(prima lettera, ultima lettera))
+sottostringa (x caratteri) = (let variabile = testo.substr(prima lettera, ultima lettera))
+sostituire carattere = (let variabile = testo.replace(lettera da cambiare, lettera in cui cambiare))
+sostituire carattere tutto = (let variabile = testo.replaceAll(lettera da cambiare, lettera in cui cambiare))
+
+array (+ valori) = (let varabile = ['testo', 'testo', numero])
+solo una parola dell'array = (console.log(variabile[numero parola o numero]))
+cambio solo una parola dell'array = (array[numero parola o numero] = testo o numero)
+aggiungi elementi a array = (array.push(parola o numero))
+togli ultimo elemento dell'array = (array.pop())
+aggiungi elementi a array all'inizio = (array.unshift(valore))
+aggiungi elementi a array all'inizio togliendo l'ultimo = (array.shift(valore))
+unire elementi dell'array = (let variabile = arrey.join(caratteri da aggiungere))
+separare gli elementi da una strina a un array = (let variabile = array.split(divisore))
+indice dell'array = (let variabile = array.indexOf(testo da cercare))
+cancartena testo all'array = (let variabile = array.concat([testo]))
+undefined (assenza di un valore non intenzionale) = se non messo un valore
+null (assenza di un valore intenzionale) = è uguale a zero
+
+if, else if ed else come c++ (anche lo switch)
+ternary operator = (let nome = (condizione) ? vero : falso)
+
+for, while come c++ (dowhile senza ;)
+
+funzioni = (function nome() {codice})
+funzioni anonime (lambda) = (function () {codice})
+prendere elementi del documento html = (let nome = document.querySelector('elemento'))
+prendere elementi del documento html(ID) = (let nome = document.getElementById('id'))
+chiamre funzione dei parametri = funzione( ()=>{funzione} )
+parametri di default = (function nome(parametro = default) {codice})
+return come in c++
+
+Eventi: Creazione di oggetto evento
+form.onsubmit
+input.onfocus = function () {code}
+button.onclick
+oppure <input id... onfocus="saluta()">
+oggetto.addEventListener('evento', ()=>{code})
+oggetto.addEventListener('evento', function (e){console.log(e)})
+e.preventDefault(); //per prevenire il funzionamento (es. campi mancanti)
+event bubbling = quando 2 funzioni si sorpappongono (riproduci e nascondi video)
+e.stopPropagation() = evita che gli altri eventi di livello superiore vengano effettuati
+eventdelegation = impostare la l'eventlistener al padre, per poi trasferirlo al figlio
+
+oggetto = collezione di dati in relazione tra loro
+let oggetto = {
+    chiave: valore,
+    chiave2: valore2,
+    chiave3: [valore, valore2]
+    oggetto2: {...}
+    funzione: function(){code}} //metodi
+accesso alle proprietà = oggetto.chiave oppure oggetto['chiave']
+accesso al metodo = oggetto.funzione();
+se l'oggetto è costante, puoi cmq cambiare le proprietà
+this = di riferisce all'oggetto in cui si trova
+
+OOP = Object-oriented programming
+Astrazione = creare delle classi generali
+Istanze dell'oggetto = oggetto istanziato dalla classe
+Costruttore = funzione che serve per istanziare la classe
+child class = sottoclassi, che eredita da un altra classe
+si prossono sovrescrivere i metodi ereditati
+costruttore = (function Classe(parametri) {code})
+fare delle istanze = (const oggetto = new Classe(parametri))
+per il costruttore di una child class = function child(parametri) {
+    parentclass.call(this, parametri);
+    extra...
+}
+classi = aggiunte x avvicinare a java, c++ ec..
+class nome extend parentclass {
+    contructor(parametri) {
+        super(parametri); code} } // x la parentclass
+getter = (get proprietà() {return this._proprietà}) // da usare in coppia al setter
+setter = (set proprietà(parametro) {this._proprietà = parametro;}) // da usare in coppia al getter
+
+JSON = javascript object notation, struttura di dati basata sulla sintassi deglio oggetti javascript
+{chiave = valore}
+Solo dati, senza metodi, uso di stringhe in "
+stringhe, boolean, float, int, objects
+let requestURL = 'perscorso (./classe.json)';
+let request = new XMLHttpRequest();
+request.open('GET', requestURL);
+request.responseType = 'json';
+request.send();
+request.onload = function () {
+    let classe = request.response;}
+
+ogni task, occupa completamnete il processo.
+quindi x avere più thread si usano le funzioni async
+si ha il main thread e i worker thread.
+let response = fetch('link') // fetch è async
+si h un problema, devo aspettare che finisca, quindi:
+function loadAsset (url, type, callback) { //callback è la funzione che fa dopo aver ricevuto
+    let xhr = new XMLHttpRequest();
+    xhr.open('GET', url);
+    xhr.responseType = type;
+    xhr.onload = function () {
+        callback(xhr.response)
+    xhr.send()}}
+fetch('classe.json').then(function (response) {
+    return response.json();
+}).then(function (json) {
+    classe = json
+}).catch(function(err) {
+    console.log(err.message)
+});
+
+timout = (let prova = setTimeout(funzione(), tempo di timeout)) // dopo tot
+clearTimeout(prova) //evita l'esecuzione
+interval = (let prova = setInterval(funzione(), tempo di intervallo)) // ogni tot
+clearInterval(prova) //si ferma
+
+promise = promessa che il programma fa di ritornare un valore (non sappiamo nulla)
+chooseToppings()
+    .then(toppings => {return placeOrder(toppings);})
+    .then(order => {return collectorOrder(order);})
+    .then(pizza => eatPizza(pizza))
+    .catch(failureCallback)
+fetch(link)
+    .then(response =>
+        if (!response.ok) {
+            throw new Error(`errore, status: ${response.status}`);
+        } else {
+            return response.blob();
+        })
+    .then(myBlob => {
+        let objectURL = URL.createObjectURL(myBlob);
+        image.src = objectURL})
+    .catch(e => {
+        console.log('errore: ' + e.message)})
+creare una promise =
+let prova = new Promise((resolve, reject) => {
+    resolve(); //può essere risolta (.then) o rejected (catch)})
+
+fare funzioni asyncrone = (async function nome() {code})
+name().then((response) => {
+    code})
+async function hello() {
+    return greeting = await Promise.resolve('hello');
+}
+hello().then(console.log)
+async function myFetch(){
+    let response = await fetch(url)
+    let myBlob = await response.blob();
+}
+invece di .catch puoi usare try and catch
+puoi aspettare le promise di funzioni async differenti cosi:
+let values = await Promise.all([coffe, tea, description]);
+e si crea un array di risposte
+
+API = Application Programming Interface (oggetti)
+Browser API = costruiti nel browser (es. controllo dell audio (fatto in c++))
+Third-party API = fatto da altri (es. Imbd, maps ec..)
+framework = altre tecnologie
+Le API possono usare gli eventi (es. request.onload)
+
+Document = foglio html
+Window = con barra url
+Navigator = tutto il programma (lingua preferita ec...)
+DOM = oggetto
+fa un albero, con padri, figli e fratelli, è fatto con il documento html
+let x = document.getElementById('id');
+let y = document.querySelector('tag');
+let z = document.querySelector('#tag');
+let k = document.querySelector('.tag');
+let w = document.querySelectorAll('.prova'); //Array
+let j = document.getElementByClassName('prova'); //Array
+const div = document.querySelector('div')
+let paragrafo = document.createElement('p'); //dinamicamente creato
+paragrafo.textContent = 'elemento'
+div.appendChild(paragrafo); //nel div
+extratesto = document.createTextNode('testo');
+paragrafo.appendChild(extratesto); //nello stesso p
+se lo appendi da un altra parte, si sposta
+paragrafo.removeChild(extratesto);
+extratesto.remove();
+modifica stile:
+paragrafo.style.color = 'red';
+paragrafo.style.backgroundColor = 'black'; //tutto in ''
+paragrafo.setAttribute('class', 'nomeclasse');
+paragrafo.setAttribute('data-value', 'ciao'); //attributi personalizzati
+console.log(paragrafo.getAttribute('data-value'));
+
+Ajax = asynchronus JavaScript and XML
+API KEY = molte API richiedeno le API KEY
