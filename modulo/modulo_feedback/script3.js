@@ -1,18 +1,11 @@
-//Aggiunta local storage pèer conservare i dati
-
-/*
-Prcedimento:
-1. recuperae gli eventuali i dati salvati (F5);
-2. visualizzare nella tabella;
-3. salvare ogni nuovo dato nel local storage;
-4. aggiornare il local storage anche quando elimino un feedback.
-*/
-
 const form = document.getElementById("form");
 const messaggio = document.getElementById("corpoTabella");
-//const dati = [];
-//Recupero dal localstorage
-const dati = JSON.parse(localStorage.getItem("form")) || []; 
+const btnEliminaTutto = document.getElementById("EliminaTutto");
+const dati = JSON.parse(localStorage.getItem("form")) || [];
+
+function salvaDati() {
+    localStorage.setItem("form", JSON.stringify(dati));
+}
 
 function creaRiga(dato) {
     const campi = [
@@ -24,6 +17,7 @@ function creaRiga(dato) {
         "testoFeedback",
         "iscrizione"
     ];
+
     const riga = document.createElement("tr");
 
     for (let i = 0; i < campi.length; i++) {
@@ -37,19 +31,27 @@ function creaRiga(dato) {
     bottoneElimina.textContent = "X";
 
     bottoneElimina.addEventListener("click", function () {
-        riga.remove();
-        dati.splice(dati.indexOf(dato), 1);
+        riga.remove();                              
+        dati.splice(dati.indexOf(dato), 1);           
+        salvaDati();                                  
     });
 
     cellaAzioni.appendChild(bottoneElimina);
     riga.appendChild(cellaAzioni);
-
     messaggio.appendChild(riga);
 }
 
-form.addEventListener("submit", function (event) {
-    event.preventDefault();
+for (let i = 0; i < dati.length; i++) {
+    creaRiga(dati[i]);
+}
 
+btnEliminaTutto.addEventListener("click", function () {
+    dati.length = 0;              
+    salvaDati();            
+    messaggio.innerHTML = "";          
+});
+
+form.addEventListener("submit", function (event) {
     const nome = document.getElementById("nome").value.trim();
     const email = document.getElementById("email").value.trim();
     const data = document.getElementById("data").value;
@@ -64,22 +66,19 @@ form.addEventListener("submit", function (event) {
     }
 
     const iscrizione = newsletter ? "Si" : "No";
-    const dato = {
-        nome,
-        email,
-        data,
-        ora,
-        tipoFeedback,
-        testoFeedback,
-        iscrizione
-    };
+    const dato = { 
+        nome, 
+        email, 
+        data, 
+        ora, 
+        tipoFeedback, 
+        testoFeedback, 
+        iscrizione };
 
     dati.push(dato);
 
-    //salvataggio in local storage
-    //memorizza solo stringhe, quindi va converitto tutto in una stringa
-    localStorage.setItem("form", JSON.stringify(dati));
-
+    salvaDati();         
     creaRiga(dato);
+
     form.reset();
 });
