@@ -105,3 +105,78 @@ const prodottiDisponibili = prodotti.filter((prodotti) => {
 console.log("Prodotti disponibili: ")
 console.log(prodottiDisponibili)
 console.log("\n")
+
+/*
+FIND => trova elemanto cvhe rispetta la condizione
+*/
+
+const prodottiTRovati = prodotti.find((prodotti) => {
+  return prodotti.id === 3
+})
+
+console.log("Prodotti trovati: ")
+console.log(prodottiTRovati)
+console.log("\n")
+
+
+/*
+REDUCE => elabora tutti glie elemntii dell'array e restituisce un unico risultato
+
+In questo esempio calcolo il valore complessivo dei prodotti
+array.reduce((accumulatore, elemento => {}))
+*/
+
+const valoreTot = prodotti.reduce((totale, prodotti) => {
+  const valoreProdotto = prodotti.prezzo * prodotti.quantita;
+  return totale + valoreProdotto;
+}, 0);
+
+console.log(`Valore complessivo dei prodotti: ${valoreTot} euro`)
+
+const n = [1, 2, 3, 4]
+
+const somma = n.reduce((totale, n) => {
+  return totale + n;
+}, 0);
+
+console.log(somma)
+
+/*
+SPREAD => permette di espandere gli elemneti di un arrary:
+  -copiare elementi,
+  -aggiungere elementi,
+  -unire più array  
+*/
+
+const copiaArray = [...prodotti];
+console.table(copiaArray);
+
+const altri =[{
+  id: 5,
+   nome: "hello",
+   categoria: "gpo",
+   prezzo: 230,
+   quantita: 3,
+   disponibile: true
+}]
+
+const tot = [
+  ...prodotti,
+  ...altri
+]
+
+console.log(tot);
+
+/*
+ordina gli elemneti di un array
+crea una copia e ordina in mod crescente
+*/
+ 
+array = [1, 2, 3, 4, 6, 58, 7]
+
+const ordina = array.toSorted((a, b) => a - b);
+console.log(array)
+console.log(ordina)
+
+const ordina2 = [...array].sort((a, b) => a - b);
+consol.log(ordina2)
