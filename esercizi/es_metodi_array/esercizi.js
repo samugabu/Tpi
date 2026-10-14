@@ -56,7 +56,6 @@ const eventi = [
 
 //ES1
 console.log("=== ESERCIZIO 1 ===");
-
 const postiLiberi = (evento) => evento.posti - evento.iscritti;
 
 eventi.forEach((evento) => {
@@ -132,12 +131,11 @@ const incassoPrevistoAttivi = eventi.reduce((acc, evento) => {
 console.log(`L'incasso totale previsto per gli 
     eventi attivi è di: ${incassoPrevistoAttivi}€`);
 
-
 //ES6
 const eventiOrdinati = [...eventi].sort((a, b) => a.costo - b.costo);
 
-console.log("Costo primo evento in 'eventi':", eventi[0].costo);         // Output: 12
-console.log("Costo primo evento in 'eventiOrdinati':", eventiOrdinati[0].costo); // Output: 0
+console.log("Costo primo evento in 'eventi':", eventi[0].costo);    
+console.log("Costo primo evento in 'eventiOrdinati':", eventiOrdinati[0].costo); 
 
 const salvaEventi = (lista) => {
   const jsonString = JSON.stringify(lista);
